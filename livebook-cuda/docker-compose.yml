@@ -2,9 +2,10 @@ version: "3.9"
 
 services:
   livebook-cuda:
-    image: "ghcr.io/livebook-dev/livebook:latest-cuda12.1"
+    image: "ghcr.io/livebook-dev/livebook:0.12.1-cuda12.1"
     ports:
       - 8080:8080
+      - 8081:8081
     volumes:
       - "${HOME}/livebook:/data"
     environment:
