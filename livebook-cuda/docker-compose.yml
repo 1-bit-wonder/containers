@@ -1,0 +1,18 @@
+version: "3.9"
+
+services:
+  livebook-cuda:
+    image: "ghcr.io/livebook-dev/livebook:latest-cuda12.1"
+    ports:
+      - 8080:8080
+    volumes:
+      - "${HOME}/livebook:/data"
+    environment:
+      - XLA_TARGET=cuda120
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
